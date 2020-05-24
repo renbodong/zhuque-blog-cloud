@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>zhuque-test</artifactId>
+        <groupId>com.github</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>blog-test-server</artifactId>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.github</groupId>
+            <artifactId>blog-test-controller</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <scope>provided</scope>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>swagger-annotations</artifactId>
+                    <groupId>io.swagger</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-annotations</artifactId>
+            <scope>provided</scope>
+        </dependency>
+
+        <!-- 使用feign时，无需引入多余的jar -->
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-openfeign</artifactId>
+            <optional>true</optional>
+            <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.openfeign</groupId>
+            <artifactId>feign-okhttp</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-ribbon</artifactId>
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.google.guava</groupId>-->
+            <!--                    <artifactId>guava</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-netflix-hystrix</artifactId>
+            <!--            <exclusions>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>com.google.guava</groupId>-->
+            <!--                    <artifactId>guava</artifactId>-->
+            <!--                </exclusion>-->
+            <!--                <exclusion>-->
+            <!--                    <groupId>commons-logging</groupId>-->
+            <!--                    <artifactId>commons-logging</artifactId>-->
+            <!--                </exclusion>-->
+            <!--            </exclusions>-->
+        </dependency>
+
+
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
+            <!--&lt;!&ndash;            <exclusions>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <artifactId>fastjson</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <groupId>com.alibaba</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <groupId>com.google.guava</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <artifactId>guava</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;            </exclusions>&ndash;&gt;-->
+        <!--</dependency>-->
+        <!--<dependency>-->
+            <!--<groupId>com.alibaba.cloud</groupId>-->
+            <!--<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
+            <!--&lt;!&ndash;            <exclusions>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    &lt;!&ndash; 排除低版本 &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <groupId>com.alibaba</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <artifactId>fastjson</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    &lt;!&ndash; 排除低版本 &ndash;&gt;&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <groupId>com.google.guava</groupId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                    <artifactId>guava</artifactId>&ndash;&gt;-->
+            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
+            <!--&lt;!&ndash;            </exclusions>&ndash;&gt;-->
+        <!--</dependency>-->
+
+        <!-- 必须有这个jar 才能提示 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <optional>true</optional>
+            <scope>compile</scope>
+        </dependency>
+
+
+        <!--上面都是scan-start的内容-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-swagger2</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>io.swagger</groupId>
+                    <artifactId>swagger-models</artifactId>
+                </exclusion>
+                <exclusion>
+                    <artifactId>swagger-annotations</artifactId>
+                    <groupId>io.swagger</groupId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>io.swagger</groupId>
+            <artifactId>swagger-models</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+        </dependency>
+
+
+        <!--上面都是swagger-start的依赖-->
+        <dependency>
+            <groupId>org.hibernate.validator</groupId>
+            <artifactId>hibernate-validator</artifactId>
+        </dependency>
+
+
+
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-autoconfigure</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-zipkin</artifactId>
+        </dependency>
+
+
+        <!-- spring boot -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
+        </dependency>
+
+        <dependency>
+        <groupId>com.baomidou</groupId>
+        <artifactId>mybatis-plus-boot-starter</artifactId>
+    </dependency>
+
+        <!--<dependency>-->
+            <!--<groupId>cn.afterturn</groupId>-->
+            <!--<artifactId>easypoi-spring-boot-starter</artifactId>-->
+        <!--</dependency>-->
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <executable>true</executable>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
