@@ -9,6 +9,8 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <artifactId>blog-test-server</artifactId>
+    <name>${project.artifactId}</name>
+    <description>测试模块启动服务</description>
 
     <dependencies>
         <dependency>
@@ -18,35 +20,15 @@
         </dependency>
 
         <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <groupId>com.github</groupId>
+            <artifactId>zhuque-swagger</artifactId>
         </dependency>
+
         <dependency>
             <groupId>io.springfox</groupId>
             <artifactId>springfox-core</artifactId>
         </dependency>
 
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <scope>provided</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.swagger</groupId>
-                    <artifactId>swagger-models</artifactId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>swagger-annotations</artifactId>
-                    <groupId>io.swagger</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-annotations</artifactId>
-            <scope>provided</scope>
-        </dependency>
 
         <!-- 使用feign时，无需引入多余的jar -->
         <dependency>
@@ -88,36 +70,42 @@
         </dependency>
 
 
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>-->
-            <!--&lt;!&ndash;            <exclusions>&ndash;&gt;-->
-            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <artifactId>fastjson</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <groupId>com.alibaba</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <groupId>com.google.guava</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <artifactId>guava</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;            </exclusions>&ndash;&gt;-->
-        <!--</dependency>-->
-        <!--<dependency>-->
-            <!--<groupId>com.alibaba.cloud</groupId>-->
-            <!--<artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>-->
-            <!--&lt;!&ndash;            <exclusions>&ndash;&gt;-->
-            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    &lt;!&ndash; 排除低版本 &ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <groupId>com.alibaba</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <artifactId>fastjson</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;                <exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    &lt;!&ndash; 排除低版本 &ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <groupId>com.google.guava</groupId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                    <artifactId>guava</artifactId>&ndash;&gt;-->
-            <!--&lt;!&ndash;                </exclusion>&ndash;&gt;-->
-            <!--&lt;!&ndash;            </exclusions>&ndash;&gt;-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>fastjson</artifactId>
+                        <groupId>com.alibaba</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+                <exclusions>
+                    <exclusion>
+                        <!-- 排除低版本 -->
+                        <groupId>com.alibaba</groupId>
+                        <artifactId>fastjson</artifactId>
+                    </exclusion>
+                    <exclusion>
+                        <!-- 排除低版本 -->
+                        <groupId>com.google.guava</groupId>
+                        <artifactId>guava</artifactId>
+                    </exclusion>
+                </exclusions>
+        </dependency>
+
+        <dependency>
+            <groupId>com.alibaba.nacos</groupId>
+            <artifactId>nacos-client</artifactId>
+            <version>${nacos-client}</version>
+        </dependency>
 
         <!-- 必须有这个jar 才能提示 -->
         <dependency>
@@ -130,41 +118,7 @@
 
         <!--上面都是scan-start的内容-->
 
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-starter-tomcat</artifactId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-swagger2</artifactId>
-            <exclusions>
-                <exclusion>
-                    <groupId>io.swagger</groupId>
-                    <artifactId>swagger-models</artifactId>
-                </exclusion>
-                <exclusion>
-                    <artifactId>swagger-annotations</artifactId>
-                    <groupId>io.swagger</groupId>
-                </exclusion>
-            </exclusions>
-        </dependency>
-        <dependency>
-            <groupId>io.swagger</groupId>
-            <artifactId>swagger-models</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-        </dependency>
 
-
-        <!--上面都是swagger-start的依赖-->
         <dependency>
             <groupId>org.hibernate.validator</groupId>
             <artifactId>hibernate-validator</artifactId>
@@ -188,6 +142,21 @@
 
 
         <!-- spring boot -->
+        <!--踩坑之路：server引用了controller,controller中引用了 springboot-web-start jar包，导致项目启动访问一直报错，主机强制中断了一个连接。springboot-web-start 包含了 tomcat ,自己猜想自己的tomcat配置没有被读取到-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.apache.tomcat.embed</groupId>
+                    <artifactId>tomcat-embed-websocket</artifactId>
+                </exclusion>
+                <exclusion>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-starter-tomcat</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-undertow</artifactId>
@@ -213,6 +182,9 @@
     </dependencies>
 
     <build>
+        <filters>
+            <filter>../../src/main/filter/config-${profile.active}.properties</filter>
+        </filters>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>

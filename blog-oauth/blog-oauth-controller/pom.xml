@@ -12,4 +12,22 @@
     <artifactId>blog-oauth-controller</artifactId>
 
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github</groupId>
+            <artifactId>blog-oauth-biz</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <!-- jwt 只有Oauth服务需要使用 -->
+        <!--<dependency>-->
+            <!--<groupId>com.github</groupId>-->
+            <!--<artifactId>zhuque-jwt</artifactId>-->
+        <!--</dependency>-->
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+    </dependencies>
 </project>

@@ -11,5 +11,11 @@
 
     <artifactId>blog-oauth-biz</artifactId>
 
+    <dependencies>
+        <dependency>
+            <groupId>com.github</groupId>
+            <artifactId>zhuque-security</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>

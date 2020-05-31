@@ -1,0 +1,47 @@
+zhuque:
+  nacos:
+    ip: ${NACOS_IP:@nacos.ip@}
+    port: ${NACOS_PORT:@nacos.port@}
+    namespace: ${NACOS_ID:@nacos.namespace@}
+
+spring:
+  main:
+    allow-bean-definition-overriding: true
+  application:
+    name: @project.artifactId@
+  profiles:
+    active: @profile.active@
+  cloud:
+    nacos:
+      config:
+        server-addr: ${zhuque.nacos.ip}:${zhuque.nacos.port}
+        file-extension: yml
+        namespace: ${zhuque.nacos.namespace}
+        shared-configs:
+          - dataId: common.yml
+            refresh: true
+#          - dataId: redis.yml
+#            refresh: false
+#          - dataId: mysql.yml
+#            refresh: true
+#          - dataId: rabbitmq.yml
+#            refresh: false
+        enabled: true
+      discovery:
+        server-addr: ${zhuque.nacos.ip}:${zhuque.nacos.port}
+        namespace: ${zhuque.nacos.namespace}
+        metadata:
+          management.context-path: ${server.servlet.context-path:}${spring.mvc.servlet.path:}${management.endpoints.web.base-path:}
+
+
+#logging:
+#  file:
+#    path: @logging.file.path@
+#    name: ${logging.file.path}/${spring.application.name}/root.log
+
+info:
+  name: "@project.name@"
+  description: "@project.description@"
+  version: "@project.version@"
+  spring-boot-version: '${spring.boot.version}'
+  spring-cloud-version: "@spring.cloud.version@"
