@@ -1,6 +1,8 @@
 package com.github.oauth.biz.grant;
 
+import cn.hutool.core.util.ObjectUtil;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -20,5 +22,17 @@ public class TokenGrantBuilder {
 
     public Map<String,TokenGrant> getTokenGrantMap(){
         return map;
+    }
+
+    public TokenGrant getTokenGrant(String type){
+        if(StringUtils.isEmpty(type)){
+            throw new IllegalStateException("get Token type error...");
+        }
+        TokenGrant tokenGrant = map.get(type);
+
+        if(ObjectUtil.isEmpty(tokenGrant)){
+            throw new NullPointerException("get Token tokenGrant is null");
+        }
+        return  tokenGrant;
     }
 }
