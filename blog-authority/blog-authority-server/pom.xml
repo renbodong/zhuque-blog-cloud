@@ -3,26 +3,20 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>blog-oauth</artifactId>
+        <artifactId>blog-authority</artifactId>
         <groupId>com.github</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-
-    <artifactId>blog-oauth-biz</artifactId>
+    <name>${project.artifactId}</name>
+    <description>权限服务启动模块</description>
+    <artifactId>blog-authority-server</artifactId>
 
     <dependencies>
-
         <dependency>
             <groupId>com.github</groupId>
-            <artifactId>blog-authority-biz</artifactId>
+            <artifactId>blog-authority-controller</artifactId>
             <version>${project.version}</version>
-        </dependency>
-
-        <!-- jwt 只有权限服务需要使用 -->
-        <dependency>
-            <groupId>com.github</groupId>
-            <artifactId>zhuque-jwt</artifactId>
         </dependency>
     </dependencies>
 

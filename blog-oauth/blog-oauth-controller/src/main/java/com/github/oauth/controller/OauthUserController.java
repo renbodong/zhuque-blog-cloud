@@ -1,4 +1,4 @@
-package com.github.oauth.controller.controller;
+package com.github.oauth.controller;
 
 import com.github.oauth.biz.service.UserService;
 import com.github.zhuque.core.base.R;

@@ -3,38 +3,27 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>blog-oauth</artifactId>
+        <artifactId>blog-authority</artifactId>
         <groupId>com.github</groupId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>blog-oauth-controller</artifactId>
-
-
+    <artifactId>blog-authority-biz</artifactId>
+    <name>${project.artifactId}</name>
+    <description>权限服务业务模块</description>
     <dependencies>
         <dependency>
             <groupId>com.github</groupId>
-            <artifactId>blog-oauth-biz</artifactId>
+            <artifactId>blog-authority-entity</artifactId>
             <version>${project.version}</version>
         </dependency>
 
         <dependency>
             <groupId>com.github</groupId>
-            <artifactId>blog-authority-biz</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <!-- jwt 只有Oauth服务需要使用 -->
-        <dependency>
-            <groupId>com.github</groupId>
-            <artifactId>zhuque-jwt</artifactId>
-        </dependency>
-
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-web</artifactId>
+            <artifactId>zhuque-security</artifactId>
         </dependency>
     </dependencies>
+
+
 </project>

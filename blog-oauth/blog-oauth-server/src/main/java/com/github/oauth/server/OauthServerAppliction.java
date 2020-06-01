@@ -1,6 +1,5 @@
-package com.github.ozuth.server;
+package com.github.oauth.server;
 
-import com.github.zhuque.security.annnotation.EnableLoginArgResolver;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
